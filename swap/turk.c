@@ -6,14 +6,24 @@
 /*   By: mkibous <mkibous@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 22:10:17 by mkibous           #+#    #+#             */
-/*   Updated: 2024/01/18 16:17:58 by mkibous          ###   ########.fr       */
+/*   Updated: 2024/01/18 18:29:20 by mkibous          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+int ft_chek_if_sorted(t_stack *lst)
+{
+	while (lst->next)
+	{
+		if(lst->content > lst->next->content)
+            return(0);
+		lst = lst->next;
+	}
+    return(1);
+}
 void push_to_b(t_stack **a, t_stack **b, int med)
 {
-    while (ft_lstsize(*a) > 3)
+    while (ft_lstsize(*a) > 3 && ft_chek_if_sorted(*a) == 0)
     {
         if ((*a)->content <= med)
             ft_push(a, b, 'b');
@@ -23,7 +33,8 @@ void push_to_b(t_stack **a, t_stack **b, int med)
             rotate(b, 'b');
         }
     }
-    sort_3(a);
+    if(ft_lstsize(*a) == 3)
+        sort_3(a);
 } 
 t_stack *ft_getmin(t_stack *a)
 {
