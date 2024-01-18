@@ -6,22 +6,20 @@
 /*   By: mkibous <mkibous@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 15:51:46 by mkibous           #+#    #+#             */
-/*   Updated: 2023/11/17 13:02:57 by mkibous          ###   ########.fr       */
+/*   Updated: 2024/01/14 15:25:48 by mkibous          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_outoflimit(unsigned long n, int s, int count)
+static int	ft_outoflimit(long long n, int s, int count)
 {
-	if (n > 9223372036854775807 || count > 19)
-	{
-		if (s == 1)
-			return (-1);
-		else
-			return (0);
-	}
 	n = n * s;
+	if (n > 2147483647 || n < -2147483648 || count > 19)
+	{
+		ft_putstr_fd("Error \nsome arguments are bigger than an integer", 2);
+		exit(1);
+	}
 	return (n);
 }
 
@@ -41,7 +39,7 @@ int	ft_atoi(const char *str)
 {
 	int				s;
 	int				i;
-	unsigned long	nbr;
+	long long	nbr;
 	int				count;
 
 	i = 0;

@@ -1,4 +1,4 @@
-SRCS = push_swap.c
+SRCS = push_swap.c lists.c indexing.c turk.c
 CC = cc
 CFLAGS = -Wall -Wextra 
 RM = rm -f
@@ -22,7 +22,7 @@ clean_libft : libft/Makefile printf/Makefile
 	cd libft && make clean
 	cd printf && make clean
 clean: clean_libft
-	$(RM) server.o client.o
+	$(RM) $(OBJ)
 fclean_libft : libft/Makefile printf/Makefile
 	cd libft && make fclean
 	cd printf && make fclean

@@ -42,21 +42,41 @@ void	ft_lstadd_front(t_stack **lst, t_stack *new)
 	if (new)
 		*lst = new;
 }
-void  ft_swap(t_stack **lst)
+int	ft_lstsize(t_stack *lst)
+{
+	int	i;
+
+	i = 0;
+	while (lst)
+	{
+		i++;
+		lst = lst->next;
+	}
+	return (i);
+}
+void  ft_swap(t_stack **lst, char c)
 {
     t_stack *tmp;
+	if((*lst)->next == NULL)
+		return ;
     tmp = (*lst)->next;
     (*lst)->next = (*lst)->next->next;
     ft_lstadd_front(lst, tmp);
+	if(c != 0 && (*lst)->next != NULL)
+		ft_printf("s%c\n", c);
 }
-void ft_push(t_stack **src, t_stack **dest)
+void ft_push(t_stack **src, t_stack **dest, char c)
 {
     t_stack *tmp;
+	if((*src) == NULL)
+		return ;
     tmp = (*src)->next; 
     ft_lstadd_front(dest, *src);
     *src = tmp;
+	if(c != 0)
+		ft_printf("p%c\n", c);
 }
-void rotate(t_stack **lst)
+void rotate(t_stack **lst, char c)
 {
 
     t_stack *tmp;
@@ -65,8 +85,10 @@ void rotate(t_stack **lst)
     *lst = tmp->next;
     tmp->next = NULL;
     ft_lstadd_back(lst, tmp);
+	if(c != 0 && (*lst)->next != NULL)
+		ft_printf("r%c\n", c);
 }
-void r_rotate(t_stack **lst)
+void r_rotate(t_stack **lst, char c)
 {
     t_stack *last;
     last = ft_lstlast(*lst);
@@ -80,4 +102,21 @@ void r_rotate(t_stack **lst)
         (*lst)->next = NULL;
 	}
     *lst = last;
+	if(c != 0 && (*lst)->next != NULL)
+		ft_printf("rr%c\n", c);
+}
+void ss(t_stack **a, t_stack **b)
+{
+	ft_swap(a, 0);
+	ft_swap(b, 's');
+}
+void rr(t_stack **a, t_stack **b)
+{
+	rotate(a, 0);
+	rotate(b, 'r');
+}
+void rrr(t_stack **a, t_stack **b)
+{
+	r_rotate(a, 0);
+	r_rotate(b, 'r');
 }
