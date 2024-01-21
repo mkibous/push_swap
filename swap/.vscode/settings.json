@@ -6,5 +6,6 @@
         "bitset": "c",
         "chrono": "c",
         "unordered_map": "c"
-    }
+    },
+    "git.ignoreLimitWarning": true
 }

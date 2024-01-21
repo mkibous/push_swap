@@ -6,7 +6,7 @@
 /*   By: mkibous <mkibous@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 15:51:46 by mkibous           #+#    #+#             */
-/*   Updated: 2024/01/14 15:25:48 by mkibous          ###   ########.fr       */
+/*   Updated: 2024/01/21 21:15:46 by mkibous          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	ft_atoi(const char *str)
 {
 	int				s;
 	int				i;
-	long long	nbr;
+	long long		nbr;
 	int				count;
 
 	i = 0;

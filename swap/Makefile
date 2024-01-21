@@ -1,4 +1,4 @@
-SRCS = push_swap.c lists.c indexing.c turk.c
+SRCS = push_swap.c lists.c indexing.c turk.c list_utils.c turk_utils.c push_swap_utils.c
 CC = cc
 CFLAGS = -Wall -Wextra 
 RM = rm -f
