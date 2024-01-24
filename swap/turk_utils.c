@@ -6,21 +6,37 @@
 /*   By: mkibous <mkibous@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 22:10:17 by mkibous           #+#    #+#             */
-/*   Updated: 2024/01/21 22:32:48 by mkibous          ###   ########.fr       */
+/*   Updated: 2024/01/22 10:00:41 by mkibous          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_chek_if_sorted(t_stack *lst)
+void	ranking(t_stack *lst)
 {
-	while (lst->next)
+	int		rank;
+	t_stack	*tmp;
+	t_stack	*first;
+
+	rank = 0;
+	first = lst;
+	while (rank < ft_lstsize(lst))
 	{
-		if (lst->content > lst->next->content)
-			return (0);
-		lst = lst->next;
+		tmp = ft_getmax(lst);
+		while (lst)
+		{
+			if (tmp->content > lst->content && lst->b == 0)
+				tmp = lst;
+			lst = lst->next;
+		}
+		if (tmp->b == 0)
+		{
+			tmp->rank = rank;
+			tmp->b = 1;
+		}
+		rank++;
+		lst = first;
 	}
-	return (1);
 }
 
 void	push_to_b(t_stack **a, t_stack **b, int med)

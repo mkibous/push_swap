@@ -6,7 +6,7 @@
 /*   By: mkibous <mkibous@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 20:54:20 by mkibous           #+#    #+#             */
-/*   Updated: 2024/01/21 22:54:02 by mkibous          ###   ########.fr       */
+/*   Updated: 2024/01/22 17:23:10 by mkibous          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int	main(int arc, char **arv)
 
 	l = 0;
 	j = 1;
+	if (arc == 1)
+		exit(0);
 	ft_count_nums(arc, arv, &l);
 	a = NULL;
 	b = NULL;

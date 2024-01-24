@@ -6,7 +6,7 @@
 /*   By: mkibous <mkibous@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 15:51:46 by mkibous           #+#    #+#             */
-/*   Updated: 2024/01/21 21:15:46 by mkibous          ###   ########.fr       */
+/*   Updated: 2024/01/22 16:32:35 by mkibous          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int	ft_outoflimit(long long n, int s, int count)
 	n = n * s;
 	if (n > 2147483647 || n < -2147483648 || count > 19)
 	{
-		ft_putstr_fd("Error \nsome arguments are bigger than an integer", 2);
+		ft_putstr_fd("Error\n", 2);
 		exit(1);
 	}
 	return (n);
