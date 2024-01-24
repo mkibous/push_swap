@@ -6,7 +6,7 @@
 /*   By: mkibous <mkibous@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 22:10:17 by mkibous           #+#    #+#             */
-/*   Updated: 2024/01/21 22:55:20 by mkibous          ###   ########.fr       */
+/*   Updated: 2024/01/22 09:42:38 by mkibous          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	best_move(t_stack **a, t_stack **b, t_stack *best)
 			|| (best->target->index <= ft_lstsize(*a) / 2
 				&& best->target->index >= best->index))
 		&& best->index != 0 && best->target->index != 0)
-		rr(a, b);
+		rr(a, b, 'r');
 	else if (((best->index > ft_lstsize(*b) / 2
 				&& ft_lstsize(*b) - best->index
 				>= ft_lstsize(*a) - best->target->index)
@@ -71,7 +71,7 @@ void	best_move(t_stack **a, t_stack **b, t_stack *best)
 					&& ft_lstsize(*b) - best->index
 					<= ft_lstsize(*a) - best->target->index)))
 		&& best->index != 0 && best->target->index != 0)
-		rrr(a, b);
+		rrr(a, b, 'r');
 	else if (best->index <= (ft_lstsize(*b) / 2) && best->index != 0)
 		rotate(b, 'b');
 	else if (best->index > (ft_lstsize(*b) / 2) && best->index != 0)

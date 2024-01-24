@@ -6,7 +6,7 @@
 /*   By: mkibous <mkibous@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 21:12:30 by mkibous           #+#    #+#             */
-/*   Updated: 2024/01/21 21:14:17 by mkibous          ###   ########.fr       */
+/*   Updated: 2024/01/23 16:09:59 by mkibous          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,31 +39,24 @@ void	ft_getmin_max(t_stack *lst, int *max, int *min)
 	}
 }
 
-void	ranking(t_stack *lst)
+void	sort_3(t_stack **lst, char c)
 {
-	int		rank;
-	t_stack	*tmp;
-	t_stack	*first;
-
-	rank = 0;
-	first = lst;
-	while (rank < ft_lstsize(lst))
-	{
-		tmp = ft_getmax(lst);
-		while (lst)
-		{
-			if (tmp->content > lst->content && lst->b == 0)
-				tmp = lst;
-			lst = lst->next;
-		}
-		if (tmp->b == 0)
-		{
-			tmp->rank = rank;
-			tmp->b = 1;
-		}
-		rank++;
-		lst = first;
-	}
+	if ((*lst)->content < (*lst)->next->content
+		&& (*lst)->content < (*lst)->next->next->content
+		&& (*lst)->next->content > (*lst)->next->next->content)
+		r_rotate(lst, c);
+	if ((*lst)->content > (*lst)->next->content
+		&& (*lst)->content < (*lst)->next->next->content)
+		ft_swap(lst, c);
+	if ((*lst)->content > (*lst)->next->content
+		&& (*lst)->next->content > (*lst)->next->next->content)
+		ft_swap(lst, c);
+	if ((*lst)->content < (*lst)->next->content
+		&& (*lst)->next->next->content < (*lst)->content)
+		r_rotate(lst, c);
+	if ((*lst)->content > (*lst)->next->content
+		&& (*lst)->next->content < (*lst)->next->next->content)
+		rotate(lst, c);
 }
 
 void	ft_count_nums(int arc, char **arv, int *l)
@@ -78,7 +71,7 @@ void	ft_count_nums(int arc, char **arv, int *l)
 		s = ft_split(arv[i], ' ');
 		if (s[0] == NULL)
 		{
-			ft_putstr_fd("Error\nargument vide", 2);
+			ft_putstr_fd("Error\n", 2);
 			exit(1);
 		}
 		j = 0;
