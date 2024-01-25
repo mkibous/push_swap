@@ -1,16 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client.c                                           :+:      :+:    :+:   */
+/*   client_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkibous <mkibous@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 16:00:34 by mkibous           #+#    #+#             */
-/*   Updated: 2024/01/25 04:21:45 by mkibous          ###   ########.fr       */
+/*   Updated: 2024/01/25 04:08:39 by mkibous          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#include "minitalk_bonus.h"
+
+void	ft_print(int i)
+{
+	i = 0;
+	ft_printf("Mesage have been sended");
+}
+
+void	ft_send_zero(pid_t pid)
+{
+	int	i;
+
+	i = 0;
+	while (i < 8)
+	{
+		kill(pid, SIGUSR1);
+	}
+	signal(SIGUSR1, ft_print);
+}
 
 int	main(int arc, char **arv)
 {
@@ -27,14 +45,14 @@ int	main(int arc, char **arv)
 		b = 31;
 		while (b >= 0)
 		{
-			usleep(500);
 			if (((arv[2][i] >> b) & 1) == 1)
 				kill(pid, SIGUSR2);
 			else if (((arv[2][i] >> b) & 1) == 0)
 				kill(pid, SIGUSR1);
 			b--;
 		}
+		usleep(1600);
 		i++;
 	}
-	ft_printf("%d", pid);
+	// ft_send_zero(pid);
 }
