@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_utils.c                                  :+:      :+:    :+:   */
+/*   push_swap_utils_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkibous <mkibous@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 20:54:20 by mkibous           #+#    #+#             */
-/*   Updated: 2024/01/22 16:31:05 by mkibous          ###   ########.fr       */
+/*   Updated: 2024/02/11 22:24:27 by mkibous          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	ft_repeat_chek(t_stack *lst, int number)
 
 int	ft_chek_if_sorted(t_stack *lst)
 {
-	while (lst->next)
+	while (lst && lst->next)
 	{
 		if (lst->content > lst->next->content)
 			return (0);

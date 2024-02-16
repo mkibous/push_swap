@@ -3,7 +3,7 @@ SRV_SRCS = server.c
 B_SRCS = client_bonus.c
 B_SRV_SRCS = server_bonus.c
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra
 RM = rm -f
 NAME = client
 SRV_NAME = server
@@ -25,13 +25,13 @@ make_libs : libft/Makefile printf/Makefile
 $(NAME):  $(OBJ) minitalk.h
 	$(CC) $(CFLAGS) $(LIBFT) $(PRINT) $(SRCS)  -o $(NAME)
 
-$(B_NAME):  $(B_OBJ) minitalk.h
+$(B_NAME):  $(B_OBJ) minitalk_bonus.h
 	$(CC) $(CFLAGS) $(LIBFT) $(PRINT) $(B_SRCS)  -o $(B_NAME)
 
 $(SRV_NAME): $(SRV_OBJ) minitalk.h
 	$(CC) $(CFLAGS) $(LIBFT) $(PRINT) $(SRV_SRCS)  -o $(SRV_NAME)
 
-$(B_SRV_NAME): $(B_SRV_OBJ) minitalk.h
+$(B_SRV_NAME): $(B_SRV_OBJ) minitalk_bonus.h
 	$(CC) $(CFLAGS) $(LIBFT) $(PRINT) $(B_SRV_SRCS)  -o $(B_SRV_NAME)
 
 %.o : %.c 
@@ -46,5 +46,5 @@ fclean_libft : libft/Makefile printf/Makefile
 	cd libft && make fclean
 	cd printf && make fclean
 fclean: clean fclean_libft
-	$(RM) $(NAME) $(SRV_NAME) $(B_SRV_NAME) $(SRV_NAME)
+	$(RM) $(NAME) $(SRV_NAME) $(B_SRV_NAME) $(B_NAME)
 re : fclean all

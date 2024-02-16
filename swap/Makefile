@@ -1,5 +1,5 @@
 SRCS = push_swap.c lists.c indexing.c turk.c list_utils.c turk_utils.c push_swap_utils.c
-B_SRCS = checker_bonus.c checker_bonus_utils.c list_utils_bonus.c \
+B_SRCS = checker_bonus.c checker_utils_bonus.c list_utils_bonus.c \
 	lists_bonus.c push_swap_utils_bonus.c get_next_line.c get_next_line_utils.c
 CC = cc
 CFLAGS = -Wall -Wextra -Werror

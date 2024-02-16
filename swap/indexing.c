@@ -6,7 +6,7 @@
 /*   By: mkibous <mkibous@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 21:12:30 by mkibous           #+#    #+#             */
-/*   Updated: 2024/01/23 16:09:59 by mkibous          ###   ########.fr       */
+/*   Updated: 2024/02/05 15:04:59 by mkibous          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	ft_count_nums(int arc, char **arv, int *l)
 	while (i < arc)
 	{
 		s = ft_split(arv[i], ' ');
-		if (s[0] == NULL)
+		if (!s || s[0] == NULL)
 		{
 			ft_putstr_fd("Error\n", 2);
 			exit(1);

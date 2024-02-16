@@ -6,7 +6,7 @@
 /*   By: mkibous <mkibous@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 21:16:20 by mkibous           #+#    #+#             */
-/*   Updated: 2024/01/23 21:57:14 by mkibous          ###   ########.fr       */
+/*   Updated: 2024/02/13 19:01:31 by mkibous          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ typedef struct s_stack
 	struct s_stack	*next;
 }	t_stack;
 
+void	ft_check(char *line, int *bl);
+void	ft_free(char **str);
 void	ft_count_nums(int arc, char **arv, int *l);
 t_stack	*ft_lstnew(int content, int index);
 void	ft_lstadd_back(t_stack **lst, t_stack *new);
